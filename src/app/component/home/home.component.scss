@@ -1,0 +1,41 @@
+@import "primeicons/primeicons.css";
+
+.color1{
+    color: rgb(245, 165, 16)
+}
+.color2{
+    color: rgb(35, 224, 35);
+}
+
+// .home--card--container{
+//     &:hover{
+//         .card--button{
+//         visibility: visible !important;
+//         }
+//     }
+// }
+
+.card--button{
+    visibility: hidden !important;
+}
+.homepage--container{
+    width: 100vw;
+    text-decoration: none !important;
+}
+.home--card--container{
+    width: 10%;
+    align-items: center;
+    border: 2px solid rgb(63, 62, 62);
+    border-radius: 10px;
+    &:hover{
+        background-color: rgb(242, 237, 237);
+    }
+}
+.card--title{
+    align-items: center;
+}
+.card--container--link{
+    color: black; /* Set the desired color here */
+  text-decoration: none;
+
+}

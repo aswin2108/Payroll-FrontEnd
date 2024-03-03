@@ -1,0 +1,10 @@
+<form [formGroup]="loginForm">
+    <span class=" p-input-icon-left">
+            <i class="pi pi-user"></i>
+        <input placeholder="User Name" pInputText id="username" formControlName="userName"/>
+    </span>
+    
+    <p-password [toggleMask]="true" formControlName="Password"></p-password>
+    <p-button label="Submit" [loading]="loading" (onClick)="submitLogInForm()"></p-button>
+
+</form>
