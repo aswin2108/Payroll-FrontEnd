@@ -248,4 +248,78 @@ export class DisplayEmployeeComponent implements OnInit {
     });
     this.fetchAllEmployees();
   }
+
+  test(){
+    console.log("haiii");
+    
+  }
+
+//   handleFileUpload(event: any) {
+//     console.log('csv process started');
+//     const fileReader = new FileReader();
+//     fileReader.onload = (e) => {
+//         const fileContents = fileReader.result.toString();
+//         this.processCsvData(fileContents);
+//     };
+//     fileReader.readAsText(event.files[0]);
+// }
+
+handleFileUpload(event: Event) {
+  const files: FileList = (event.target as HTMLInputElement).files;
+  if (files && files.length > 0) {
+    const file: File = files[0];
+    const fileReader: FileReader = new FileReader();
+    fileReader.onload = (e) => {
+      const fileContents = fileReader.result as string;
+      this.processCsvData(fileContents);
+    };
+    fileReader.readAsText(file);
+  }
+}
+processCsvData(csvData: string) {
+  const rows = csvData.split('\n');
+  const employeeArray: EmployeeDetails[] = [];
+  console.log('csv process started');
+  
+
+  for (let i = 1; i < rows.length; i++) {
+      const values = rows[i].split(',');
+      console.log(values);
+      
+      if (values.length === 18) {
+          const employee: EmployeeDetails = new EmployeeDetails();
+          this.newEmployee=new EmployeeDetails();
+          this.newEmployAuth=new AthTableData();
+          employee.userName = values[0].trim();
+          employee.age = +values[1].trim();
+          employee.email = values[2].trim();
+          employee.accNo = values[3].trim();
+          employee.firstName = values[4].trim();
+          employee.lastName = values[5].trim();
+          employee.ifsc = values[6].trim();
+          employee.nextPayDate = values[7].trim();
+          employee.dob = values[8].trim();
+          employee.phone = values[9].trim();
+          employee.salary = +values[10].trim();
+          employee.taxPercent = +values[11].trim();
+          employee.bonus = +values[12].trim();
+          employee.excemptionAmt = +values[13].trim();
+          employee.payFreq = +values[14].trim();
+          employee.overTime = +values[15].trim();
+          employee.role = values[16].trim();
+          this.newEmployAuth.password=values[17].trim();
+          employeeArray.push(employee);
+
+          // Call the post request function for each employee 
+          
+          this.newEmployee=employee;
+
+          this.createEmployee();
+      } else {
+          console.log("Invalid row data");
+      }
+  }
+
+  console.log(employeeArray); // Use this array for further processing if needed
+}
 }

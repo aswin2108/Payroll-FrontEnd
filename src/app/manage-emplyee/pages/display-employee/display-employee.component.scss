@@ -5,3 +5,32 @@
     font-weight: 400;
     font-style: normal;
 }
+
+.file-upload-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .file-upload--container{
+    padding-top: 2.5px;
+  padding-bottom: 2.5px;
+  }
+  
+  .file-upload-button:hover {
+    background-color: darkblue;
+  }
+  .file-upload-button input[type="file"] {
+    display: none;
+  }
+  
+  .file-upload-button label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }

@@ -51,8 +51,16 @@
         <ng-template pTemplate="center"><h1 class="manageTable--TitleFont">Employee Details</h1></ng-template>
 
         <ng-template pTemplate="right">
-            <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import"
-                class="mr-2 inline-block m-xl-2"></p-fileUpload>
+            <!-- <p-fileUpload mode="basic" accept=".csv" [maxFileSize]="1000000" label="Import" chooseLabel="Import"
+            (onUpload)="test()" class="mr-2 inline-block m-xl-2"></p-fileUpload> -->
+            <div class="field m-xl-2 ">
+                <div class="file-upload-button">
+                  <label for="fileInput" class="gap-2 file-upload--container">
+                    <span class="pi pi-upload"></span> Choose File
+                  </label>
+                  <input type="file" id="fileInput" (change)="handleFileUpload($event)">
+                </div>
+              </div>
             <button pButton pRipple label="Download" (click)="exportExcel()" icon="pi pi-download" class="p-button-help"></button>
         </ng-template>
     </p-toolbar>
